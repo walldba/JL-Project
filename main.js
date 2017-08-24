@@ -8,7 +8,7 @@ function main()
 		$(this).next('.descricao').slideToggle(400); 
 		if ($(this).text() == 'Saiba mais v')
 			{
-				$(this).text('Saiba mais ^');		
+				$(0).text('Saiba mais ^');		
 			}
 		else
 			{
