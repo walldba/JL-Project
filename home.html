@@ -2,16 +2,163 @@
 <html>
 	<head>
 	<title>  Liga da Justiça </title>
+	<link href="https://fonts.googleapis.com/css?family=Merriweather|Roboto+Slab" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Anton|Bitter|Oswald" rel="stylesheet">
+	<link href="http://fonts.googleapis.com/css?family=Arimo:400" rel="stylesheet">
 	<link href="./style.css" type="text/css" rel="stylesheet" /> <!--Alterar o local dos arquivos -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
 	</head>
 <body>
-<div class = "BordaJL">
-		<div id="JL">
-			<img src="http://geekandsundry.com/wp-content/uploads/2016/06/Cle-3mPWAAISpFl.jpg">
+<!-- Cabeçalho principal - FIXO! -->
+	<header class="container-fluid">
+		<div class="row">
+			<div class="col-sm-1">
+	<a class="menu-bar" data-toggle="collapse" href="#menu">
+            <span class="bars"></span>            
+        </a>
+    	<div class="collapse menu" id="menu">
+            <ul class="list-inline">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Herois</a></li>
+                <li><a href="#">Monte seu Héroi</a></li>
+                <li><a href="#">Sobre</a></li>
+			</ul>   
+    	</div>
+ 
+			</div>
+			<div class="col-sm-10">
+				<img src="http://geekandsundry.com/wp-content/uploads/2016/06/Cle-3mPWAAISpFl.jpg" height=48px; >
+			</div>
+			<div class="col-sm-1">
+				<button class="btn btn-primary" data-toggle="modal" data-target="#myModal">Log in </button>
+			</div>
 		</div>
+	</header>
+<!-- Banner Liga -->	
+	<div class="jumbotron">
+			<div class="row">
+				<div class="col-sm-12">
+					<img src = "https://i.redd.it/zz54i0jxpfny.jpg" height= 220px; > 
+				</div>
+			</div>
+	</div>	
+<!-- Barra de navegação	-->
+	<div class ="navbar">
+		<div class ="row">
+			<ul>
+				<li><a class="ativo" href="home.html">Home</a></li>
+				<li><a href="herois.html">Herois</a></li>
+				<li><a href="">Monte Seu Héroi</a></li>
+				<li><a href="">Sobre</a></li>
+			</ul>
 		</div>
-	<div class = "header">
+	</div>
+<!-- Conteudo Principal -->
+	<section class="container">
+		<div class= "row">
+			<div class="col-sm-9">
+				<h2>Últimas Notícias:</h2>  
+				<div id="myCarousel" class="carousel slide" data-ride="carousel" style="width:60%;">
+				<!-- Indicators -->
+				<ol class="carousel-indicators">
+				  <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				  <li data-target="#myCarousel" data-slide-to="1"></li>
+				  <li data-target="#myCarousel" data-slide-to="2"></li>
+				</ol>
+
+				<!-- Wrapper for slides -->
+				<div class="carousel-inner">
+				  <div class="item active">
+					<img src="img\ljs.jpg" alt="Los Angeles" style="width:auto;">
+					<div class="carousel-caption">
+						<h3>Liga da Justiça</h3>
+						<p>9 erros já cometidos pelo filme antes da estreia.</p>
+					 </div>
+				  </div>
+
+				  <div class="item">
+					<img src="img\lj.jpg" alt="Chicago" style="width:auto;">
+					<div class="carousel-caption">
+						<h3>Liga da Justiça</h3>
+						<p>Superman se junta aos heróis em nova e bela arte conceitual.</p>
+					 </div>				
+				   </div>
+				
+				  <div class="item">
+					<img src="img\mm.jpg" alt="New york" style="width:auto;">
+					<div class="carousel-caption">
+						<h3>Mulher Maravilha</h3>
+						<p>Patty Jenkins, revelou que participou ativamente do filme na hora de impor o visual de Diana..</p>
+					 </div>
+				  </div>
+				</div>
+
+				<!-- Left and right controls -->
+				<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+				  <span class="glyphicon glyphicon-chevron-left"></span>
+				  <span class="sr-only">Previous</span>
+				</a>
+				<a class="right carousel-control" href="#myCarousel" data-slide="next">
+				  <span class="glyphicon glyphicon-chevron-right"></span>
+				  <span class="sr-only">Next</span>
+				</a>
+			  </div>
+				<div class="row">
+					<div class="col-sm-8 col-md-6">
+					  <ul>
+						<li><a href="">Superman se junta aos heróis em nova e bela arte</a></li>
+						<li><a href="">Liga da Justiça pode mostrar a origem do Flash</a></li>
+						<li><a href="">Roteiro de 'Liga da Justiça Sombria' vai ser reescrito novamente</a></li>
+						<li><a href="">Lex Luthor de Jesse Eisenberg foi cortado de Liga da Justiça</a></li>
+						<li><a href="">Ben Affleck promete um Batman "mais tradicional"</a></li>
+						<li><a href="">Zack Snyder mostra foto de guerreira amazona</a></li>
+						<li><a href="">Gal Gadot afirma que refilmagens de “Liga da Justiça” são para 2019</a></li>
+						<li><a href="">Liga da Justiça: Refilmagens deixaram o Ciborgue 'mais leve'</a></li>
+						<li><a href="">Lanterna Verde pode ter sido revelado no filme</a></li>
+						<li><a href="">Liberada novas imagens promocionais com todos</a></li>
+						<li><a href="">Vulcano Energy Drink lança embalagens do filme Liga da Justiça</a></li>
+						<li><a href="">Flash aparece em comercial de supermercado</a></li>
+						<li><a href="">Confira novas fotos do colecionável da Mera</a></li>
+						<li><a href="">Heróis estampam latas de energético; veja</a></li>
+						<li><a href="">Conta oficial do Twitter foca na origem de The Flash</a></li>
+						<li><a href="">Duração do filme pode ter sido revelada!</a></li>
+						<li><a href="">A guerra de rumores sobre a Liga da Justiça no pequeno grande</a></li>
+						<li><a href="">Henry Cavill comenta a polêmica envolvendo seu pai</a></li>
+						<li><a href="">Trilha sonora sugere aparição de Lanterna Verde</a></li>
+						</ul>
+					</div>
+					<div class="col-sm-4 col-md-6">
+					  
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-3">
+				<iframe width="420" height="345" src="https://www.youtube.com/embed/XGSy3_Czz8k"></iframe>
+			</div>
+		</div>
+		</section>
+<!-- Footer -->
+	<footer class="container">
+	  <div class="row">
+			<h6 class="col-sm-4">&copy; 2017 Wall</h6>
+			    <ul class="col-sm-8">
+					  <li class="col-sm-1"> <img src="img\facebook.png"></li>
+					  <li class="col-sm-1"><img src="img\twitter.png"></li>
+					  <li class="col-sm-1"><img src="img\instagram.png"></li>
+					  <li class="col-sm-1"><img src="img\linkedin.png"></li>
+				</ul>
+		</div>
+	</footer>
+		
+</body>
+
+</html>
+	
+		
+<!--	<div class = "header">
 	
 		<div id="Banner"> 
 			<img src = "https://i.redd.it/zz54i0jxpfny.jpg"> 
@@ -37,5 +184,5 @@
 	</div>
 
 
-</body>
-</html>
+
+
