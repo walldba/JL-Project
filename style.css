@@ -1,124 +1,149 @@
-body {
-  background-image: url("http://hdqwalls.com/wallpapers/justice-league-dark-background-ad.jpg");
-  background-attachment: fixed;
-  background-size: cover;
-  overflow: scroll;
-}  
-.header{
-  
+body{
+	background-color: yellow;
 }
-.BordaJL{
-  background: black;
-  text-align: center;
-	width: 100%;
-	position:fixed;
-	margin: -10px;
+/* MENU LATERAL  */
+
+.menu-bar {
+    position: absolute;
+    top: 20px;    
+    left: 50%;
+    height: 14px;
+    margin-left: -10px;
+}
+
+.bars {
+    display: block;
+    width: 20px;
+    height: 3px;    
+    background-color: white;
+    box-shadow: 0 5px 0 white, 0 10px 0 white;
+}
+
+.menu {
+    display: none; 
+    width: 0px;
+	height: 0px;
+    margin: auto;
+	padding-top: 35px;
+    text-align: center;
     
 }
-#JL {
-  background-color: black;
-  
-}
-#JL img{
-	height: 40px;
-}
 
 
-#Banner {
-text-align:center;  
+.menu li{
+	padding-bottom: 20px;
+	width: 160px;
+	background-color: white;
+	text-transform: uppercase;
+	padding: 10px;
+	
 }
-
-.Navbar{
-  margin-top: -19px;
+ 
+.menu li:hover{
+	background-color: gray;
 }
-.Navbar ul {
-  text-align: center;
-  background-color: #f3f3f3;
+.menu li a{
+	color: black;
+	text-decoration: none;
+	font-family: 'Oswald', sans-serif;
+	padding:25px;
 }
-
-.Navbar li {
+.container-fluid{
+	width: 100%;
+	position:fixed;
+	background: black;
+	z-index: 10;
+}
+.container-fluid  button{
+	margin-top: 5px;
+	
+}
+.container-fluid .col-sm-10{
+	text-align: center;
+	
+}
+.jumbotron .col-sm-12{
+	text-align: center;
+	background-color: black;
+}
+.jumbotron {
+	height: 0px;
+}
+.navbar {
+	text-align: center;
+}
+.navbar li{
   color: black;
   display: inline-block;
   font-family: 'Oswald', sans-serif;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 300px;
   text-transform: uppercase;
   padding: 10px;
 }
-
-.Navbar li a {
+.navbar li a {
 	color: black;
 	text-decoration: none;
 	padding: 10px 35px;
 }
 
-.Navbar li a:hover{
+.navbar li a:hover{
 	background: #b7b7b7;
 }
 
-.Navbar li a.ativo{
+.navbar li a.ativo{
 	background: gray;
 }
-
-
-.main{
-  text-align: center;
-}
-
-.Corpo{
-  margin: 10px auto;
-  background-color: rgba(12, 123, 178,0.1);
-  border: 1px none rgb(12, 123, 178);
-  width: 550px;
-  text-align: center;
-  z-index: 9;
-}
-
-
-.Icon a {
-	padding: 5px 7px;
-    background-color: white;
-    border: none;
-    color: white;
-    text-decoration: none;
-    display: inline-block;
-    margin: 4px 2px;
-	border-radius: 15px;
-}
-
-.Icon a:hover {
-background-color: rgba(12, 123, 178,0.5);
-}
-
-.Icon a :active{
-	opacity: 0.5;
-}
-
-h2{
-  color: #FFF;
-  font-family: 'Anton', sans-serif;
-  text-align: center;
-  font-size: 28px;
-  font-weight: 100;
-}
-
-.about {
-	font-family: 'Pacifico', cursive;
-	border-radius: 15px;
-	background-color: rgba(255, 255, 255, 0.7);
-	width: 150px;
-	height: 28px;
+.navbar li a:active{
 	font-size: 15px;
-	color: black;
+}
+.container{
+	padding-top: 20px;
+	background-color: black;
+	background-image: ul("https://i.redd.it/zz54i0jxpfny.jpg");
+	background-size: cover;
+	float: left;
+	margin-top: -30px;
+	color: white;
+	font-family: 'Merriweather', serif;
+}
+.container .col-sm-8 li {
+	padding-top: 50px;
+	padding: 5px;
+	
+}
+.container .col-sm-3{
+	padding-top: 350px;
 }
 
-p{
-  color: white;
-  font-family: 'Bitter', serif;
-  font-size: 19px;
-  line-height: 35px;
-  margin: 0 auto;
-  text-align: center;
-  width: 60%;
+.container li a:hover{
+	background: black;
+	color: gray;
 }
+
+.container li a{
+	color: white;
+}
+.container li a:active{
+	font-size: 15px;
+}
+
+footer .row{
+  font-size: 12px;
+  padding-top: 50px;
+  background-color: white;
+  color: black;
+}
+footer .col-sm-8 {
+  display: flex;
+  justify-content: flex-end;
+  list-style: none;
+}
+
+
+
+
+
+
+
 
