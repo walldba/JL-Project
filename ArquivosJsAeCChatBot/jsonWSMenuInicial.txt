@@ -1,0 +1,15 @@
+[
+	{ 
+		"optionInfo": 
+		{ 
+			"key": "videos", 
+			"synonyms": ["Vídeos", "Vídeo", "Videos", "Video"]}, 
+			"title":"Vídeos", 
+			"description": " ", 
+			"image": 
+				{
+					"url": "http://www.wilsonsideral.com.br/content/themes/wilson-sideral/assets/img/titles/videos.png", 
+					"accessibilityText": "Vídeos" 
+				} 
+	},	
+]
