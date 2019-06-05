@@ -18,7 +18,19 @@
             new BlipChat()
             .withAppKey('bG9yZWFsOjA4ZWEyNjBlLWVkOTQtNDY0Zi1iNTQyLWVjNGZlMmE5YjgzMQ==')
             .withButton({"color":"#686868","icon":"https://s3-sa-east-1.amazonaws.com/msging.net/Services/Images/a1f361e0-5951-4066-b274-bd23bc6dd6a6"})
-			.withCustomStyle(customStyle2)
+	    .withCustomStyle(customStyle2)
+	    .withEventHandler(BlipChat.ENTER_EVENT, function () {
+              console.log('enter')
+            })
+            .withEventHandler(BlipChat.LEAVE_EVENT, function () {
+              console.log('leave')
+            })
+            .withEventHandler(BlipChat.LOAD_EVENT, function () {
+              console.log('chat loaded')
+            })
+            .withEventHandler(BlipChat.CREATE_ACCOUNT_EVENT, function () {
+              console.log('account created')
+            })
             .build();
         }
     })();
