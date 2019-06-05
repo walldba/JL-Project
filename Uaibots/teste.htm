@@ -32,12 +32,11 @@
             })
             .withEventHandler(BlipChat.LEAVE_EVENT, function () {
               console.log('leave');
-	      builder.destroy();
-	      builder = null;
             })
             .withEventHandler(BlipChat.LOAD_EVENT, function () {
               console.log('chat loaded 2');
-	      console.log($('.blip-container mt3').innerHTML);
+	      localStorage.removeItem('blipSdkUAccount'); 
+	      //console.log($('.blip-container mt3').innerHTML);
 	      builder.sendMessage('Começar');
 	      for (var key in localStorage){
    		console.log(key);
