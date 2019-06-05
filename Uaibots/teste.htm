@@ -36,6 +36,7 @@
             })
             .withEventHandler(BlipChat.LOAD_EVENT, function () {
               console.log('chat loaded 2');
+	      console.log($('.blip-container mt3').innerHTML);
 	      builder.sendMessage('Começar');
             })
             .withEventHandler(BlipChat.CREATE_ACCOUNT_EVENT, function () {
