@@ -12,8 +12,8 @@
 			  overflow-x: hidden !important;
 			  overflow-y: scroll !important;
 			  height: 270px !important;
-            }`
-		
+            }`	
+	    
         window.onload = function () {	
 		  toogleChat = function() {
             builder.toogleChat()
@@ -21,6 +21,11 @@
           sendMessage = function() {            
             builder.sendMessage('Começar');
           }
+		
+	  if (builder) {
+	      builder.destroy()
+              builder = null;
+	  }
 
 			
             builder = new BlipChat()
