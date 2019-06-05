@@ -34,9 +34,9 @@
               console.log('leave');
             })
             .withEventHandler(BlipChat.LOAD_EVENT, function () {
-              console.log('chat loaded 2');
+              console.log('chat loaded 3');
 	      localStorage.removeItem('blipSdkUAccount'); 
-	      //console.log($('.blip-container mt3').innerHTML);
+	      console.log($('.blip-container mt3').innerHTML);
 	      builder.sendMessage('Começar');
 	      for (var key in localStorage){
    		console.log(key);
