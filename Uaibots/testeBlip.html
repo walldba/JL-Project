@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Liga da Justiça</title>
+	<title>Liga da JustiÃ§a</title>
 </head>
 	
 <style>
@@ -178,16 +178,16 @@ document.addEventListener("DOMContentLoaded", function(){
     const iconId = "blip-chat-icon";
     const closeId = "blip-chat-close-icon";
     const chatContainer = "blip-chat-container";
-    const startingColor = "#ffffff";
+    //const startingColor = "#ffffff";
     const displayClassName = "display";
     const hideClassName = "hide";
     const appKey = "bG9yZWFsOjA4ZWEyNjBlLWVkOTQtNDY0Zi1iNTQyLWVjNGZlMmE5YjgzMQ==";
     const bottomImage = "https://s3-sa-east-1.amazonaws.com/infobots/fiat/customer-care/icon-white-vector.svg";
     const topImage = "https://s3-sa-east-1.amazonaws.com/infobots/fiat/customer-care/icon-gray-vector.svg";
-    const bubbleMessage = "Olá, posso ajudar hein????";
+    const bubbleMessage = "OlÃ¡, posso ajudar hein????";
     const startMessage = {
         type: "text/plain",
-        content: "COMEÇAR",
+        content: "COMEÃ‡AR",
         metadata: {
             "#blip.hiddenMessage": true
         }
@@ -242,7 +242,7 @@ document.addEventListener("DOMContentLoaded", function(){
     }
     client
     .withAppKey(appKey)
-    .withButton({ color: startingColor })
+     .withButton({"color":"#686868","icon":"https://s3-sa-east-1.amazonaws.com/msging.net/Services/Images/a1f361e0-5951-4066-b274-bd23bc6dd6a6"}
     .withEventHandler(BlipChat.CREATE_ACCOUNT_EVENT, function(){
         client.sendMessage(startMessage);
     })
