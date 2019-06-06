@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Liga da Justiça</title>
+</head>
+	
+<style>
+:root {
+    --first-color:#6369d2;
+    --second-color:#ffffff;
+    --third-color:#8f9299;
+    --animation-duration: 0.3s;
+}
+g#close {
+    fill: var(--second-color);
+}
+#bubble-container {
+    overflow-x: hidden;
+    position: relative;
+    top: 15px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    padding-left: 15px;
+}
+#message-bubble {
+    display: flex;
+    margin-right: 8px;
+    cursor: pointer;
+    animation: BubbleLoad var(--animation-duration) forwards;
+}
+#message-bubble.hide {
+    animation: BubbleUnload var(--animation-duration) forwards;
+}
+#message-bubble > #message {
+    display: flex;
+    padding: 15px;
+    font-weight: bold;
+    font-size: 16px;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1),
+                0 2px 32px rgba(0, 0, 0, 0.1);
+    color: var(--third-color);
+    background-color: var(--second-color);
+    border-radius: 5px;
+}
+#message-bubble > #triangle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 30px;
+    height: 50px;
+    position: relative;
+    overflow: hidden;
+}
+#message-bubble > #triangle::after {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: var(--second-color);
+    transform: rotate(45deg);
+    right: 28px;
+    border-radius: 5px;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1),
+                0 2px 32px rgba(0, 0, 0, 0.1);
+}
+#blip-chat-close-icon {
+    background-color: var(--first-color) !important;
+    display: block !important;
+    opacity: 0;
+}
+#blip-chat-close-icon.display {
+    animation: CloseIconDisplay var(--animation-duration) forwards;
+}
+#blip-chat-close-icon.hide {
+    animation: CloseIconHide var(--animation-duration) forwards;
+}
+/* Styles to icon and bubble hover */
+#blip-chat-icon > img {
+    transition: var(--animation-duration) !important;
+    height: 100% !important;
+    width: 100% !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#blip-chat-icon > img.top {
+    opacity: 1;
+}
+#blip-chat-icon > img.bottom {
+    opacity: 0;
+}
+#blip-chat-open-iframe:hover > #blip-chat-icon > img.top {
+    opacity: 0;
+}
+#blip-chat-open-iframe:hover > #blip-chat-icon > img.bottom {
+    opacity: 1;
+}
+#blip-chat-open-iframe {
+    background-color: var(--second-color) !important;
+    transition: var(--animation-duration) !important;
+}
+#blip-chat-open-iframe:hover {
+    background-color: var(--first-color) !important;
+    transition: var(--animation-duration) !important;
+}
+@media (max-width: 480px) { 
+    #bubble-container {
+        display: none;
+    }
+}
+@media (max-height: 480px) { 
+    #bubble-container {
+        display: none;
+    }
+}
+/* Keyframes */
+@keyframes CloseIconDisplay {
+    0%{
+        transform: rotate(45deg);
+        opacity: 0;
+    }
+    100%{
+        transform: rotate(90deg);
+        opacity: 1;
+    }
+}
+@keyframes CloseIconHide {
+    0%{
+        transform: rotate(90deg);
+        opacity: 1;
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        transform: rotate(45deg);
+        opacity: 0;
+    }
+}
+@keyframes BubbleLoad {
+    0%{
+        opacity: 0;
+        margin-right: -250px;
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+        margin-right: 8px;
+    }
+}
+@keyframes BubbleUnload {
+    0%{
+        opacity: 1;
+        margin-right: 8px;
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 0;
+        margin-right: -250px;
+    }
+}
+</style>
+	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://unpkg.com/blip-chat-widget" type="text/javascript">
+</script>
+<script>
+	var changeBubble = null;
+document.addEventListener("DOMContentLoaded", function(){
+    var client = new BlipChat();
+    var bubble;
+    var bubbleContainer;
+    var closeIcon;
+    const iconId = "blip-chat-icon";
+    const closeId = "blip-chat-close-icon";
+    const chatContainer = "blip-chat-container";
+    const startingColor = "#ffffff";
+    const displayClassName = "display";
+    const hideClassName = "hide";
+    const appKey = "bG9yZWFsOjA4ZWEyNjBlLWVkOTQtNDY0Zi1iNTQyLWVjNGZlMmE5YjgzMQ==";
+    const bottomImage = "https://s3-sa-east-1.amazonaws.com/infobots/fiat/customer-care/icon-white-vector.svg";
+    const topImage = "https://s3-sa-east-1.amazonaws.com/infobots/fiat/customer-care/icon-gray-vector.svg";
+    const bubbleMessage = "Olá, posso ajudar hein????";
+    const startMessage = {
+        type: "text/plain",
+        content: "COMEÇAR",
+        metadata: {
+            "#blip.hiddenMessage": true
+        }
+    }
+    function displayBubble(){
+        bubble.classList.add(displayClassName);
+        bubble.classList.remove(hideClassName);
+    }
+    function hideBubble(){
+        bubble.classList.add(hideClassName);
+        bubble.classList.remove(displayClassName);
+    }
+    changeBubble = function () {
+        if (bubble.classList.contains(displayClassName))
+            hideBubble();
+        else
+            displayBubble();
+    }
+    function createBubble(){
+        bubbleContainer = document.createElement("div");
+        bubbleContainer.id = "bubble-container";
+        bubble = document.createElement("div");
+        bubble.id = "message-bubble";
+        bubble.onclick = function(){ client.widget._openChat() }
+        var triangle = document.createElement("div");
+        triangle.id = "triangle";
+        var message = document.createElement("div");
+        message.id = "message";
+        message.innerHTML = bubbleMessage;
+        bubble.appendChild(message);
+        bubble.appendChild(triangle);
+        bubbleContainer.appendChild(bubble);
+        document
+        .querySelector(`#${chatContainer}`)
+        .prepend(bubbleContainer);
+    }
+    function replaceImageStructure() {
+        closeIcon = document.querySelector(`#${closeId}`);
+        var oldImage = document.querySelector(`#${iconId}`);
+        var container = document.createElement("div");
+        container.id = iconId;
+        var img1 = document.createElement("img");
+        img1.src = topImage;
+        img1.classList.add("top")
+        var img2 = document.createElement("img");
+        img2.src = bottomImage;
+        img2.classList.add("bottom");
+        container.appendChild(img1);
+        container.appendChild(img2);
+        oldImage.parentElement.insertBefore(container, oldImage);
+        oldImage.remove();
+    }
+    client
+    .withAppKey(appKey)
+    .withButton({ color: startingColor })
+    .withEventHandler(BlipChat.CREATE_ACCOUNT_EVENT, function(){
+        client.sendMessage(startMessage);
+    })
+    .withEventHandler(BlipChat.ENTER_EVENT, function () {
+        closeIcon.classList.add(displayClassName);
+        closeIcon.classList.remove(hideClassName);
+        hideBubble();
+    })
+    .withEventHandler(BlipChat.LEAVE_EVENT, function () {
+        closeIcon.classList.add(hideClassName);
+        closeIcon.classList.remove(displayClassName);
+    })
+    .build();
+    //replaceImageStructure();
+    createBubble();
+    displayBubble();
+    setTimeout(function(){
+        hideBubble();
+    }, 10000);
+});
+</script> 
+<body>
+</body>
+</html>
