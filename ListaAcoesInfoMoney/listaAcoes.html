@@ -1,51 +1,105 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
+    <meta http-equiv="Access-Control-Allow-Origin" content="*" />
+    <!--<meta charset="utf-8" />-->
     <title></title>
-    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script type="text/javascript">
-        jQuery.support.cors = true;
-
+        var dataParam = {
+            "sEcho": "4",
+            "iDisplayStart": "0",
+            "iDisplayLength": "10000",
+            "iSortCol_0": "1",
+            "sSortDir_0": "asc",
+            "sSearch": "",
+            "TypeBind": "cot",
+            "MarketID": "0",
+            "SectorID": "0"
+        };
         $(document).ready(function () {
-            // chamar api via post
+            jQuery.support.cors = true;
+            //// chamar api via post
             $.ajax({
-                url: "https://www.infomoney.com.br/webservices/services.asmx/GetStockSearchData?hash=cfcd208495d565ef66e7dff9f98764da",
-                type: "POST",
+                headers: {
+                    'Access-Control-Allow-Credentials': '*',
+                    'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Headers': 'Content-Type',
+                    'Access-Control-Allow-Methods': 'POST',
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Credentials': true
+                },
                 crossDomain: true,
-                // This is the important part
-                xhrFields: {
-                    withCredentials: true
+                contentType: 'application/json',
+                data: JSON.stringify(dataParam),
+                //dataType: 'json',
+                success: function (data) {
+                    console.log("device control succeeded");
                 },
-                // This is the important part
-                data: {
-                    "sEcho": 4, "iDisplayStart": 0, "iDisplayLength": 10000,"iSortCol_0": 1, "sSortDir_0": "asc", "sSearch": "","TypeBind": "cot", "MarketID": "0", "SectorID": "0"
+                error: function (er) {
+                    console.log("Device control failed");
+                    console.log(er);
                 },
-                success: function (response) {
-                    // handle the response
-                    alert("Data Loaded: " + data);
-                },
-                error: function (xhr, status) {
-                    // handle errors
-                }
+                processData: false,
+                type: 'POST',
+                url: 'https://www.infomoney.com.br/webservices/services.asmx/GetStockSearchData'
             });
 
-            //var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
+            //$.ajax({
+            //    url: "https://www.infomoney.com.br/webservices/services.asmx/GetStockSearchData?hash=cfcd208495d565ef66e7dff9f98764da",
+            //    headers: {
+            //        'Access-Control-Allow-Credentials': '*',
+            //        'Access-Control-Allow-Origin': '*',
+            //        'Access-Control-Allow-Headers': 'Content-Type',
+            //        'Content-Type': 'application/json',
+            //        'hash': 'cfcd208495d565ef66e7dff9f98764da'
+            //    },
+            //    method: "POST",
+            //    //crossDomain: true,
+            //    // This is the important part
+            //    //xhrFields: {
+            //        //withCredentials: true
+            //    //},
+            //    contentType: 'application/json; charset=utf-8',
+            //    // This is the important part
+            //    data: JSON.stringify({"sEcho": 4, "iDisplayStart": 0, "iDisplayLength": 10000,"iSortCol_0": 1, "sSortDir_0": "asc", "sSearch": "","TypeBind": "cot", "MarketID": "0", "SectorID": "0"}),
+            //    dataType: 'json',
+            //    beforeSend: function (xhr) {
+            //        xhr.setRequestHeader('hash', 'cfcd208495d565ef66e7dff9f98764da');
+            //        xhr.setRequestHeader('Access-Control-Allow-Credentials', '*');
+            //        xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
+            //        xhr.setRequestHeader('Access-Control-Allow-Headers', 'Content-Type');
+            //        xhr.setRequestHeader('Content-Type', 'application/json');
+            //    },
+            //    success: function (response) {
+            //        // handle the response
+            //        alert("Data Loaded: " + data);
+            //    },
+            //    error: function (xhr, status) {
+            //        // handle errors
+            //    }
+            //});
+
+            //var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance
             //xmlhttp.open("POST", "https://www.infomoney.com.br/webservices/services.asmx/GetStockSearchData?hash=cfcd208495d565ef66e7dff9f98764da");
             //xmlhttp.setRequestHeader("Content-Type", "application/json");
             //xmlhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
+            //xmlhttp.setRequestHeader("Access-Control-Allow-Methods", "GET, POST, PUT");
+            //xmlhttp.setRequestHeader("Access-Control-Allow-Headers", "Content-Type");
+            //xmlhttp.setRequestHeader("Access-Control-Max-Age", "1728000");
             //xmlhttp.withCredentials = true;
-            //xmlhttp.send({
+            //xmlhttp.send(
+            //    JSON.stringify({
             //    "sEcho": 4, "iDisplayStart": 0, "iDisplayLength": 10000, "iSortCol_0": 1, "sSortDir_0": "asc", "sSearch": "", "TypeBind": "cot", "MarketID": "0", "SectorID": "0"
+            //    })
+            //);
+
+            //$.post("https://www.infomoney.com.br/webservices/services.asmx/GetStockSearchData?hash=cfcd208495d565ef66e7dff9f98764da",
+            //    { "sEcho": 4, "iDisplayStart": 0, "iDisplayLength": 10000, "iSortCol_0": 1, "sSortDir_0": "asc", "sSearch": "", "TypeBind": "cot", "MarketID": "0", "SectorID": "0" }
+            //)
+            //    .done(function (data) {
+            //        alert("Data Loaded: " + data);
             //});
-            
-            $.post("https://www.infomoney.com.br/webservices/services.asmx/GetStockSearchData?hash=cfcd208495d565ef66e7dff9f98764da",
-                {
-                    "sEcho": 4, "iDisplayStart": 0, "iDisplayLength": 10000,"iSortCol_0": 1, "sSortDir_0": "asc", "sSearch": "","TypeBind": "cot", "MarketID": "0", "SectorID": "0"
-                })
-                .done(function (data) {
-                    alert("Data Loaded: " + data);
-            });
         });
     </script>
 </head>
