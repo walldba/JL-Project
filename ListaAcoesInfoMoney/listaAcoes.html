@@ -23,7 +23,7 @@
             $.ajax({
                 headers: {
                     'Access-Control-Allow-Credentials': '*',
-                    'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Origin': 'https://raw.githack.com/',
                     'Access-Control-Allow-Headers': 'Content-Type',
                     'Access-Control-Allow-Methods': 'POST',
                     'Content-Type': 'application/json',
@@ -45,40 +45,40 @@
                 url: 'https://www.infomoney.com.br/webservices/services.asmx/GetStockSearchData'
             });
 
-            //$.ajax({
-            //    url: "https://www.infomoney.com.br/webservices/services.asmx/GetStockSearchData?hash=cfcd208495d565ef66e7dff9f98764da",
-            //    headers: {
-            //        'Access-Control-Allow-Credentials': '*',
-            //        'Access-Control-Allow-Origin': '*',
-            //        'Access-Control-Allow-Headers': 'Content-Type',
-            //        'Content-Type': 'application/json',
-            //        'hash': 'cfcd208495d565ef66e7dff9f98764da'
-            //    },
-            //    method: "POST",
-            //    //crossDomain: true,
-            //    // This is the important part
-            //    //xhrFields: {
-            //        //withCredentials: true
-            //    //},
-            //    contentType: 'application/json; charset=utf-8',
-            //    // This is the important part
-            //    data: JSON.stringify({"sEcho": 4, "iDisplayStart": 0, "iDisplayLength": 10000,"iSortCol_0": 1, "sSortDir_0": "asc", "sSearch": "","TypeBind": "cot", "MarketID": "0", "SectorID": "0"}),
-            //    dataType: 'json',
-            //    beforeSend: function (xhr) {
-            //        xhr.setRequestHeader('hash', 'cfcd208495d565ef66e7dff9f98764da');
-            //        xhr.setRequestHeader('Access-Control-Allow-Credentials', '*');
-            //        xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
-            //        xhr.setRequestHeader('Access-Control-Allow-Headers', 'Content-Type');
-            //        xhr.setRequestHeader('Content-Type', 'application/json');
-            //    },
-            //    success: function (response) {
-            //        // handle the response
-            //        alert("Data Loaded: " + data);
-            //    },
-            //    error: function (xhr, status) {
-            //        // handle errors
-            //    }
-            //});
+            $.ajax({
+                url: "https://www.infomoney.com.br/webservices/services.asmx/GetStockSearchData?hash=cfcd208495d565ef66e7dff9f98764da",
+                headers: {
+                    'Access-Control-Allow-Credentials': '*',
+                    'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Headers': 'Content-Type',
+                    'Content-Type': 'application/json',
+                    'hash': 'cfcd208495d565ef66e7dff9f98764da'
+                },
+                method: "POST",
+                //crossDomain: true,
+                // This is the important part
+                //xhrFields: {
+                    //withCredentials: true
+                //},
+                contentType: 'application/json; charset=utf-8',
+                // This is the important part
+                data: JSON.stringify({"sEcho": 4, "iDisplayStart": 0, "iDisplayLength": 10000,"iSortCol_0": 1, "sSortDir_0": "asc", "sSearch": "","TypeBind": "cot", "MarketID": "0", "SectorID": "0"}),
+                dataType: 'json',
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader('hash', 'cfcd208495d565ef66e7dff9f98764da');
+                    xhr.setRequestHeader('Access-Control-Allow-Credentials', '*');
+                    xhr.setRequestHeader('Access-Control-Allow-Origin', 'https://raw.githack.com/');
+                    xhr.setRequestHeader('Access-Control-Allow-Headers', 'Content-Type');
+                    xhr.setRequestHeader('Content-Type', 'application/json');
+                },
+                success: function (response) {
+                    // handle the response
+                    alert("Data Loaded: " + data);
+                },
+                error: function (xhr, status) {
+                    // handle errors
+                }
+            });
 
             //var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance
             //xmlhttp.open("POST", "https://www.infomoney.com.br/webservices/services.asmx/GetStockSearchData?hash=cfcd208495d565ef66e7dff9f98764da");
