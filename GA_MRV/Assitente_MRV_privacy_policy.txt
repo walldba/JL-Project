@@ -1,0 +1,7 @@
+Política de Privacidade
+
+Este é um aplicativo de teste para o cliente MRV.
+
+Para o mesmo, foi adicionado somente usuários que são funcionários da MRV e funcionários da AeC.
+
+A AeC é a empresa responsável pela criação da aplicação via Google Assistente.
